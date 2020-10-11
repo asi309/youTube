@@ -12,10 +12,12 @@ const VideoList = ({ videos, setSelectedVideo }) => {
           setSelectedVideo={setSelectedVideo}
         />
       );
+    } else {
+      return false;
     }
   });
 
-  return <div>{videoList}</div>;
+  return <>{videoList}</>;
 };
 
 export default VideoList;

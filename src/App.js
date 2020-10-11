@@ -28,17 +28,21 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div id="searchbar">
         <SearchBar searchHandler={searchHandler} />
       </div>
-      <div>
-        <div>
-          <VideoDetail video={selectedVideo} />
+      {!selectedVideo ? (
+        <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>Search for a video</h2>
+      ) : (
+        <div id="video-container">
+          <div id="main-video">
+            <VideoDetail video={selectedVideo} />
+          </div>
+          <div id="video-list">
+            <VideoList videos={videos} setSelectedVideo={setSelectedVideo} />
+          </div>
         </div>
-        <div>
-          <VideoList videos={videos} setSelectedVideo={setSelectedVideo} />
-        </div>
-      </div>
+      )}
     </div>
   );
 }
